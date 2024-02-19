@@ -10,5 +10,5 @@ argocd admin initial-password -n argocd
 kubectl port-forward svc/argocd-server -n argocd 8080:443
 
 # patch image tag
-kubectl set image deployment/nginx-deployment nginx=nginx:1.25.4-alpine3.18 -n dummy-app
+k set image deployment/nginx-deployment nginx=nginx:1.25.4-alpine3.18 -n dummy-app
 ```
