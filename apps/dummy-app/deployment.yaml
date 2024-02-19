@@ -23,8 +23,8 @@ spec:
           ports:
             - containerPort: 80
           env:
-            - name: FOO1
-              value: bar1
+            - name: FOO0
+              value: bar0
             - name: FOO2
               value: bar2
             - name: FOO3
