@@ -21,6 +21,17 @@ spec:
           image: nginx:stable
           ports:
             - containerPort: 80
+          env:
+            - name: FOO1
+              value: bar1
+            - name: FOO2
+              value: bar2
+            - name: FOO3
+              value: bar3
+            - name: FOO4
+              value: bar4
+            - name: FOO5
+              value: bar5
           resources:
             requests:
               cpu: 100m
