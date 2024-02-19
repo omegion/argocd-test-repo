@@ -27,8 +27,8 @@ spec:
               value: bar1
             - name: FOO2
               value: bar2
-            - name: FOO3
-              value: bar3
+            - name: FOO6
+              value: bar6
             - name: FOO4
               value: bar4
             - name: FOO5
