@@ -30,4 +30,4 @@ spec:
           selfHeal: false
         syncOptions:
           - CreateNamespace=true
-          - RespectIgnoreDifferences=true
+#          - RespectIgnoreDifferences=true
