@@ -33,6 +33,8 @@ spec:
               value: bar4
             - name: FOO5
               value: bar5
+            - name: FOO10
+              value: bar10
           resources:
             requests:
               cpu: 100m
