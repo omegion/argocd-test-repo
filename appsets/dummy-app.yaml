@@ -26,6 +26,9 @@ spec:
             - '.spec.template.spec.containers[] | select(.name == "nginx") | .image'
       syncPolicy:
         automated:
-          prune: false
+          prune: true
+          selfHeal: true
         syncOptions:
           - CreateNamespace=true
+          - ServerSideApply=true
+          - RespectIgnoreDifferences=true
