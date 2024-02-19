@@ -2,12 +2,14 @@ apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
   name: dummy-app
+  namespace: argocd
 spec:
+  goTemplate: true
   generators:
     - clusters: {}
   template:
     metadata:
-      name: '{{cluster}}-dummy-app'
+      name: '{{ .name }}-dummy-app'
     spec:
       project: default
       source:
@@ -15,5 +17,15 @@ spec:
         targetRevision: HEAD
         path: apps/dummy-app
       destination:
-        server: '{{url}}'
+        server: '{{ .server }}'
         namespace: dummy-app
+      ignoreDifferences:
+        - group: "*"
+          kind: "Deployment"
+          jqPathExpressions:
+            - '.spec.template.spec.containers[] | select(.name == "nginx") | .image'
+      syncPolicy:
+        automated:
+          prune: false
+        syncOptions:
+          - CreateNamespace=true
