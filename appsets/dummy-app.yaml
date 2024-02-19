@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: dummy-app
+spec:
+  generators:
+    - clusters: {}
+  template:
+    metadata:
+      name: '{{cluster}}-dummy-app'
+    spec:
+      project: default
+      source:
+        repoURL: https://github.com/omegion/argocd-test-repo
+        targetRevision: HEAD
+        path: apps/dummy-app
+      destination:
+        server: '{{url}}'
+        namespace: dummy-app
